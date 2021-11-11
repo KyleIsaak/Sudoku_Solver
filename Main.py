@@ -13,16 +13,17 @@ import sys
 #To run, type python Main.py (Txt file)
 #Ex: python Main.py SudokuPuzzle1.txt
 
-def initialMatrix():
+def initialMatrix(sizeOfMatrix):
     file = sys.argv[1]
     with open(file) as f:
         contents = f.read()
     
-    puzzle = ConvertTextToMatrix(contents,9)
+    puzzle = ConvertTextToMatrix(contents,sizeOfMatrix)
     return puzzle
 
 def main():
-    initalPuzzle = initialMatrix()
+    SIZE = 9
+    initalPuzzle = initialMatrix(SIZE)
     ########Different search techniques#########
 
     #A_Star_Search(initalPuzzle)
