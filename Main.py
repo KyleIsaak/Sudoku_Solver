@@ -24,11 +24,15 @@ def initialMatrix(sizeOfMatrix):
 def main():
     SIZE = 9
     initalPuzzle = initialMatrix(SIZE)
+    print("") #Spacer
+    print("Initial Puzzle:")
+    print(initalPuzzle)
+    
     ########Different search techniques#########
 
     #A_Star_Search(initalPuzzle)
     
-    #BreadthFirstSearch(initalPuzzle)
+    BFSPuzzle = BreadthFirstSearch(initalPuzzle)
     
     #DepthFirstSearch(initalPuzzle)
     
@@ -40,6 +44,10 @@ def main():
     
     #TreeSearch(initalPuzzle)
 
-    print(initalPuzzle)
+    print("") #Spacer
+    print("") #Spacer
+    print("") #Spacer
+    print("BFS Puzzle:")
+    print(BFSPuzzle)
 
 main()
