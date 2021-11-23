@@ -32,9 +32,9 @@ def main():
 
     #A_Star_Search(initalPuzzle)
     
-    BFSPuzzle = BreadthFirstSearch(initalPuzzle)
+    #BFSPuzzle = BreadthFirstSearch(initalPuzzle)
     
-    #DepthFirstSearch(initalPuzzle)
+    DepthFirstSearch(initalPuzzle)
     
     #SequentialSearch(initalPuzzle)
     
