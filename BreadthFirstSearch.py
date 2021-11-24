@@ -16,7 +16,7 @@ def BreadthFirstSearch(puzzle):
     while True:
 
         # When all states have been explored, return no solution
-        if queue is empty:
+        if not len(queue):
             print("No Solution")
             return None
 
@@ -24,6 +24,8 @@ def BreadthFirstSearch(puzzle):
     currentState = queue[0]
     queue.remove[0]
     visited.append(currentState)
+
+    print(currentState)
 
     # Return solution when found
     if ValidSolution(currentState):
@@ -38,8 +40,9 @@ def BreadthFirstSearch(puzzle):
     for i in range(0,9):
         newState = currentState
         currentState[emptyCellIndex] = i
-        if ValidSolution(newState)
-            queue.append(newState)
+        if ValidSolution(newState):
+            if newState not in visited:
+                queue.append(newState)
 
 """
     while puzzleSolved == False:
@@ -55,5 +58,3 @@ def BreadthFirstSearch(puzzle):
                 currentOptions.remove(element)
                 filledPuzzle[emptyCellIndex[0], emptyCellIndex[1]] = currentOptions[0]
 """
-
-    return filledPuzzle
