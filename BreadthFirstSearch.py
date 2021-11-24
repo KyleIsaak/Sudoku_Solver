@@ -24,6 +24,8 @@ def BreadthFirstSearch(puzzle):
         del queue[0]
         visited.append(currentState)
 
+        print(currentState)
+
         # Return solution when found
         if ValidSolution(currentState):
             if getEmptyCell(currentState) == [-1, -1]:
@@ -34,24 +36,18 @@ def BreadthFirstSearch(puzzle):
 
         emptyCellIndex = getEmptyCell(currentState)
 
-        for i in range(0,9):
-            newState = currentState
-            newState[emptyCellIndex[0], emptyCellIndex[1]] = i
+        if emptyCellIndex[0] != -1:
+            for i in range(0,9):
+                newState = currentState
+                newState[emptyCellIndex[0], emptyCellIndex[1]] = i
 
-            #print("ATTEMPTING TO ADD STATE")
-
-            if compareStates(newState, visited):
-                queue.append(newState)
-                #print("ADDED STATE")
+                if compareStates(newState, visited):
+                    queue.append(newState)
+                    #print("ADDED STATE")
     
 
 
-def compareStates(state, visited):
-    for previousState in visited:
-        if previousState.all() == state.all():
-            return True
-    
-    return False
+
 
 
 
