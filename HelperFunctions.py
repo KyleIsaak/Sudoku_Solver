@@ -9,7 +9,7 @@ def getEmptyCell(puzzle):
 def CheckDuplicates(numbers):
     length = len(numbers)
     for i in range(length):
-        for j in range(i + 1,length):
+        for j in range(i + 1, length):
             #Duplicate values found
             if numbers[i] == numbers[j]:
                 return True
