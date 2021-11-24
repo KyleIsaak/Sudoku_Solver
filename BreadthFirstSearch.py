@@ -8,6 +8,8 @@ def BreadthFirstSearch(puzzle):
     queue = []
     visited = []
 
+    #x = 0
+
     queue.append(puzzle)
 
     # This will run infinitely, but we break / return
@@ -38,8 +40,18 @@ def BreadthFirstSearch(puzzle):
                 newState = currentState.copy()
                 newState[emptyCellIndex[0], emptyCellIndex[1]] = i
 
+                #x += 1
+                #print(x, " states checked")
+
                 # if not compareStates(newState, visited):    # This isn't needed because every state created will be unique
-                queue.append(newState)
+                if ValidSolution(newState):
+                    queue.append(newState)
+
+                    print()
+                    print()
+                    print("State Added:")
+                    print(newState)
+
     
 
 
