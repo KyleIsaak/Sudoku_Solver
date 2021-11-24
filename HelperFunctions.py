@@ -6,6 +6,7 @@ def getEmptyCell(puzzle):
 
     return [-1, -1]  # Returns -1 if no empty cells were found
 
+
 def CheckDuplicates(numbers):
     length = len(numbers)
     for i in range(length):
@@ -15,6 +16,7 @@ def CheckDuplicates(numbers):
                 return True
     return False
 
+
 #Check if row is valid, containing unique values
 def ValidRow(puzzle, row):
     if CheckDuplicates(puzzle[row]) == True:
@@ -22,12 +24,14 @@ def ValidRow(puzzle, row):
 
     return True
 
+
 #Check if column is valid, containing unique values
 def ValidColumn(puzzle, column):
     if CheckDuplicates(puzzle[column]) == True:
         return False
         
     return True
+
 
 #Check if square is valid, containing unique values
 # 0 1 2
@@ -77,6 +81,7 @@ def ValidSquare(puzzle, square):
 
     return True
 
+
 #Loop through all conditions of a sudoku puzzle
 def ValidSolution(puzzle):
     length = len(puzzle)
@@ -91,3 +96,12 @@ def ValidSolution(puzzle):
         if ValidSquare(puzzle, i) == False:
             return False
     return True
+
+
+# Compare a state to all states within a list
+def compareStates(state, visited):
+    for previousState in visited:
+        if previousState.all() == state.all():
+            return True
+    
+    return False

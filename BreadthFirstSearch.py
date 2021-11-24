@@ -5,7 +5,6 @@ from HelperFunctions import *
 
 def BreadthFirstSearch(puzzle):
 
-
     queue = []
     visited = []
 
@@ -20,29 +19,42 @@ def BreadthFirstSearch(puzzle):
             print("No Solution")
             return None
 
-    # Pop from queue and add to visited states
-    currentState = queue[0]
-    queue.remove[0]
-    visited.append(currentState)
+        # Pop from queue and add to visited states
+        currentState = queue[0]
+        del queue[0]
+        visited.append(currentState)
 
-    print(currentState)
+        # Return solution when found
+        if ValidSolution(currentState):
+            if getEmptyCell(currentState) == [-1, -1]:
+                return currentState
 
-    # Return solution when found
-    if ValidSolution(currentState):
-        if getEmptyCell(currentState) == [-1, -1]:
-            return currentState
+        # Else, move one step forward and add to queue
+        #****CODE FOR FUTURE STATES HERE*****
 
-    # Else, move one step forward and add to queue
-    #****CODE FOR FUTURE STATES HERE*****
+        emptyCellIndex = getEmptyCell(currentState)
 
-    emptyCellIndex = getEmptyCell(currentState)
+        for i in range(0,9):
+            newState = currentState
+            newState[emptyCellIndex[0], emptyCellIndex[1]] = i
 
-    for i in range(0,9):
-        newState = currentState
-        currentState[emptyCellIndex] = i
-        if ValidSolution(newState):
-            if newState not in visited:
+            #print("ATTEMPTING TO ADD STATE")
+
+            if compareStates(newState, visited):
                 queue.append(newState)
+                #print("ADDED STATE")
+    
+
+
+def compareStates(state, visited):
+    for previousState in visited:
+        if previousState.all() == state.all():
+            return True
+    
+    return False
+
+
+
 
 """
     while puzzleSolved == False:
