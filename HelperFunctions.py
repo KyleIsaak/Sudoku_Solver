@@ -101,9 +101,21 @@ def ValidSolution(puzzle):
 
 
 # Compare a state to all states within a list
+# Returns True if the previous state is in the list
+# Otherwise, returns false.
 def compareStates(state, visited):
+  
     for previousState in visited:
-        if previousState.all() == state.all():
+        stateMatches = True
+        for rowIndex, row in enumerate(previousState):
+            if stateMatches:
+                continue
+            for i in range(len(row)):
+                if previousState[rowIndex, i] != previousState[rowIndex, i]:
+                    stateMatches = False
+                    continue
+
+        if stateMatches == True:
             return True
-    
+
     return False

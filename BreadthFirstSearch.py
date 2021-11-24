@@ -24,26 +24,22 @@ def BreadthFirstSearch(puzzle):
         del queue[0]
         visited.append(currentState)
 
-        #print(currentState)
+        emptyCellIndex = getEmptyCell(currentState)
 
         # Return solution when found
         if ValidSolution(currentState):
-            if getEmptyCell(currentState) == [-1, -1]:
+            if emptyCellIndex[0] == -1:
                 return currentState
 
-        # Else, move one step forward and add to queue
-        #****CODE FOR FUTURE STATES HERE*****
-
-        emptyCellIndex = getEmptyCell(currentState)
-
+        # Else, create 9 new states for each possible number
+        # and add them to the queue 
         if emptyCellIndex[0] != -1:
             for i in range(0,9):
                 newState = currentState.copy()
                 newState[emptyCellIndex[0], emptyCellIndex[1]] = i
 
-                if compareStates(newState, visited):
-                    queue.append(newState)
-                    #print("ADDED STATE")
+                # if not compareStates(newState, visited):    # This isn't needed because every state created will be unique
+                queue.append(newState)
     
 
 

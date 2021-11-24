@@ -44,13 +44,13 @@ def main():
     
     #TreeSearch(initalPuzzle)
 
-    """
+    
     print("") #Spacer
     print("") #Spacer
     print("") #Spacer
     print("BFS Puzzle:")
     print(BFSPuzzle)
-
+    """
     print("") #Spacer
     print("") #Spacer
     print("") #Spacer
