@@ -38,7 +38,7 @@ def main():
     
     #SequentialSearch(initalPuzzle)
     
-    #RandomSearch(initalPuzzle)
+    RandomPuzzle = RandomSearch(initalPuzzle)
     
     #GreedySearch(initalPuzzle)
     
@@ -51,11 +51,19 @@ def main():
     print("BFS Puzzle:")
     print(BFSPuzzle)
     '''
+    
     print("") #Spacer
     print("") #Spacer
     print("") #Spacer
     print("DFS Puzzle:")
     print(DFSPuzzle)
     
+    '''
+    print("") #Spacer
+    print("") #Spacer
+    print("") #Spacer
+    print("Random Search Puzzle:")
+    print(RandomPuzzle)
+    '''
 
 main()

@@ -1,7 +1,6 @@
 #Tentative
 #Depth First Search Algorithm
 
-from numpy import empty
 from HelperFunctions import *
 import time
 
@@ -86,8 +85,6 @@ def DepthFirstSearch(puzzle):
         if emptyCellIndex[0] == -1:
             return puzzle
 
-        #print(emptyCellIndex)
-
         #Check row
         for row in range(0,9):
             if puzzle[emptyCellIndex[0]][row] in allPossibleValues:
@@ -121,19 +118,11 @@ def DepthFirstSearch(puzzle):
             checkFlag = True
 
         if checkFlag == True:
-            #print(puzzle)
             continue
-        #print(checkFlag)
-        #print(allPossibleValues)
         value = allPossibleValues.pop()
         chosenValues.append(value)
-        #print("Chosen Values: " + str(chosenValues))
 
-        #print(unvisitedValues)
         puzzle[emptyCellIndex[0]][emptyCellIndex[1]] = value
         allPossibleValues = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        #print(allPossibleValues)
-        #print(puzzle)
         #time.sleep(1)
         
-    return puzzle
