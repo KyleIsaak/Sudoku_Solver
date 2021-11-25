@@ -32,9 +32,9 @@ def main():
 
     #A_Star_Search(initalPuzzle)
     
-    BFSPuzzle = BreadthFirstSearch(initalPuzzle)
+    #BFSPuzzle = BreadthFirstSearch(initalPuzzle)
     
-    #DFSPuzzle = DepthFirstSearch(initalPuzzle)
+    DFSPuzzle = DepthFirstSearch(initalPuzzle)
     
     #SequentialSearch(initalPuzzle)
     
@@ -44,18 +44,18 @@ def main():
     
     #TreeSearch(initalPuzzle)
 
-    
+    '''
     print("") #Spacer
     print("") #Spacer
     print("") #Spacer
     print("BFS Puzzle:")
     print(BFSPuzzle)
-    """
+    '''
     print("") #Spacer
     print("") #Spacer
     print("") #Spacer
     print("DFS Puzzle:")
     print(DFSPuzzle)
-    """
+    
 
 main()
