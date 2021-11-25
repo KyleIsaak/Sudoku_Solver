@@ -34,7 +34,7 @@ def main():
     
     #BFSPuzzle = BreadthFirstSearch(initalPuzzle)
     
-    DFSPuzzle = DepthFirstSearch(initalPuzzle)
+    #DFSPuzzle = DepthFirstSearch(initalPuzzle)
     
     #SequentialSearch(initalPuzzle)
     
@@ -51,19 +51,19 @@ def main():
     print("BFS Puzzle:")
     print(BFSPuzzle)
     '''
-    
+    '''
     print("") #Spacer
     print("") #Spacer
     print("") #Spacer
     print("DFS Puzzle:")
     print(DFSPuzzle)
-    
     '''
+    
     print("") #Spacer
     print("") #Spacer
     print("") #Spacer
     print("Random Search Puzzle:")
     print(RandomPuzzle)
-    '''
+    
 
 main()
