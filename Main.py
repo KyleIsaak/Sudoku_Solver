@@ -8,6 +8,7 @@ from GreedySearch import *
 from TreeSearch import *
 
 import sys
+import time
 
 #Driver program
 #To run, type python Main.py (Txt file)
@@ -31,39 +32,55 @@ def main():
     ########Different search techniques#########
 
     #A_Star_Search(initalPuzzle)
-    
-    #BFSPuzzle = BreadthFirstSearch(initalPuzzle)
-    
-    #DFSPuzzle = DepthFirstSearch(initalPuzzle)
-    
-    #SequentialSearch(initalPuzzle)
-    
-    RandomPuzzle = RandomSearch(initalPuzzle)
-    
-    #GreedySearch(initalPuzzle)
-    
-    #TreeSearch(initalPuzzle)
 
-    '''
+
+
+    
+    start_time = time.time()
+    BFSPuzzle = BreadthFirstSearch(initalPuzzle)
     print("") #Spacer
     print("") #Spacer
     print("") #Spacer
     print("BFS Puzzle:")
     print(BFSPuzzle)
-    '''
-    '''
+    print("--- %s seconds ---" % (time.time() - start_time))
+    
+
+
+    
+    start_time = time.time()
+    DFSPuzzle = DepthFirstSearch(initalPuzzle)
     print("") #Spacer
     print("") #Spacer
     print("") #Spacer
     print("DFS Puzzle:")
     print(DFSPuzzle)
-    '''
+    print("--- %s seconds ---" % (time.time() - start_time))
     
+
+
+    #SequentialSearch(initalPuzzle)
+    
+
+
+    """
+    start_time = time.time()
+    RandomPuzzle = RandomSearch(initalPuzzle)
     print("") #Spacer
     print("") #Spacer
     print("") #Spacer
     print("Random Search Puzzle:")
     print(RandomPuzzle)
+    print("--- %s seconds ---" % (time.time() - start_time))
+    """
+
+
+
+    start_time = time.time()
+    #GreedySearch(initalPuzzle)
+    
+    #TreeSearch(initalPuzzle)
+
     
 
 main()

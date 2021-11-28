@@ -5,7 +5,6 @@ from DepthFirstSearch import squareChoice
 from DepthFirstSearch import squareValues
 from HelperFunctions import *
 import random
-import time
 
 def possibleSolution(puzzle):
     emptyCellIndex = getEmptyCell(puzzle)
@@ -40,7 +39,6 @@ def possibleSolution(puzzle):
 
 def RandomSearch(puzzle):
     zeroIsPresent = True
-    start_time = time.time()
     while zeroIsPresent == True:
         zeroIsPresent = False
         newPuzzle = possibleSolution(puzzle.copy())
@@ -49,5 +47,4 @@ def RandomSearch(puzzle):
             for j in range(9):
                 if newPuzzle[i][j] == 0:
                     zeroIsPresent = True
-    print("--- %s seconds ---" % (time.time() - start_time))
     return newPuzzle

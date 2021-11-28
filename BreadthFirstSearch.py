@@ -1,76 +1,128 @@
 #Tentative
-#Breadth First Search Algorithm
+#Depth First Search Algorithm
 
 from HelperFunctions import *
+import time
+
+def squareChoice(row,column):
+    if row <= 2 and column <= 2:
+        square = 0
+    elif row <= 2 and column <= 5:
+        square = 1
+    elif row <= 2 and column <= 8:
+        square = 2
+
+    elif row <= 5 and column <= 2:
+        square = 3
+    elif row <= 5 and column <= 5:
+        square = 4
+    elif row <= 5 and column <= 8:
+        square = 5
+
+    elif row <= 8 and column <= 2:
+        square = 6
+    elif row <= 8 and column <= 5:
+        square = 7
+    elif row <= 8 and column <= 8:
+        square = 8
+
+    return square
+
+def squareValues(square, puzzle):
+    squaredList = []
+    if square == 0:
+        for i in range(0,3):
+            for j in range(0,3):
+                squaredList.append(puzzle[i][j])
+    elif square == 1:
+        for i in range(0,3):
+            for j in range(3,6):
+                squaredList.append(puzzle[i][j])
+    elif square == 2:
+        for i in range(0,3):
+            for j in range(6,9):
+                squaredList.append(puzzle[i][j])
+    elif square == 3:
+        for i in range(3,6):
+            for j in range(0,3):
+                squaredList.append(puzzle[i][j])
+    elif square == 4:
+        for i in range(3,6):
+            for j in range(3,6):
+                squaredList.append(puzzle[i][j])
+    elif square == 5:
+        for i in range(3,6):
+            for j in range(6,9):
+                squaredList.append(puzzle[i][j])
+    elif square == 6:
+        for i in range(6,9):
+            for j in range(0,3):
+                squaredList.append(puzzle[i][j])
+    elif square == 7:
+        for i in range(6,9):
+            for j in range(3,6):
+                squaredList.append(puzzle[i][j])
+    elif square == 8:
+        for i in range(6,9):
+            for j in range(6,9):
+                squaredList.append(puzzle[i][j])    
+
+    while 0 in squaredList:
+        squaredList.remove(0)
+
+    return squaredList
 
 def BreadthFirstSearch(puzzle):
 
-    queue = []
-    visited = []
-
-    #x = 0
-
-    queue.append(puzzle)
-
-    # This will run infinitely, but we break / return
-    # from within the loop in all possible cases.
+    unvisitedValues = []
+    visitedNodes = []
+    chosenValues = []
+    allPossibleValues = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     while True:
+    #for i in range(0,20):
+        checkFlag = False
+        emptyCellIndex = getEmptyCell(puzzle)
+        if emptyCellIndex[0] == -1:
+            return puzzle
 
-        # When all states have been explored, return no solution
-        if not len(queue):
-            print("No Solution")
-            return None
+        #Check row
+        for row in range(0,9):
+            if puzzle[emptyCellIndex[0]][row] in allPossibleValues:
+                allPossibleValues.remove(puzzle[emptyCellIndex[0]][row])
+        #Check column
+        for column in range(0,9):
+            if puzzle[column][emptyCellIndex[1]] in allPossibleValues:
+                allPossibleValues.remove(puzzle[column][emptyCellIndex[1]])
+        #Check sqaure
+        square = squareChoice(emptyCellIndex[0],emptyCellIndex[1])
+        squareListValues = squareValues(square, puzzle)
+        for index in range(len(squareListValues)):
+            if squareListValues[index] in allPossibleValues:
+                allPossibleValues.remove(squareListValues[index])
 
-        # Pop from queue and add to visited states
-        currentState = queue[0]
-        del queue[0]
-        visited.append(currentState)
+        #Backtrack here if all possible values cannot continue
+       
+        unvisitedValues.append(allPossibleValues)
+        visitedNodes.append(emptyCellIndex)
+        #print("unvisited: " + str(unvisitedValues))
+        #print("empty cells: " + str(visitedNodes))
+        #print("Choices" + str(allPossibleValues))
+        
+        while len(allPossibleValues) == 0:
+            allPossibleValues = unvisitedValues.pop()
+            emptyCell = visitedNodes.pop()
+            puzzle[emptyCell[0]][emptyCell[1]] = 0
+            #print("unvisited pop: " + str(unvisitedValues))
+            #print("empty cells pop: " + str(visitedNodes))
+            #print("Choices pop" + str(allPossibleValues))
+            checkFlag = True
 
-        emptyCellIndex = getEmptyCell(currentState)
+        if checkFlag == True:
+            continue
+        value = allPossibleValues.pop(0)
+        chosenValues.append(value)
 
-        # Return solution when found
-        if ValidSolution(currentState):
-            if emptyCellIndex[0] == -1:
-                return currentState
-
-        # Else, create 9 new states for each possible number
-        # and add them to the queue 
-        if emptyCellIndex[0] != -1:
-            for i in range(0,9):
-                newState = currentState.copy()
-                newState[emptyCellIndex[0], emptyCellIndex[1]] = i
-
-                #x += 1
-                #print(x, " states checked")
-
-                # if not compareStates(newState, visited):    # This isn't needed because every state created will be unique
-                if ValidSolution(newState):
-                    queue.append(newState)
-
-                    print()
-                    print()
-                    print("State Added:")
-                    print(newState)
-
-    
-
-
-
-
-
-
-
-"""
-    while puzzleSolved == False:
-        emptyCellIndex = getEmptyCell(filledPuzzle)
-        currentOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-        if emptyCellIndex == [-1, -1]:
-            puzzleSolved == True
-            break
-
-        for element in filledPuzzle[emptyCellIndex[0]]: # Check what numbers are in that row
-            if element != 0:
-                currentOptions.remove(element)
-                filledPuzzle[emptyCellIndex[0], emptyCellIndex[1]] = currentOptions[0]
-"""
+        puzzle[emptyCellIndex[0]][emptyCellIndex[1]] = value
+        allPossibleValues = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        #time.sleep(1)
+        
