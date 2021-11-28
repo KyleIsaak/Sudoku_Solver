@@ -1,5 +1,5 @@
 #Tentative
-#Depth First Search Algorithm
+#Breadth First Search Algorithm
 
 from HelperFunctions import *
 import time

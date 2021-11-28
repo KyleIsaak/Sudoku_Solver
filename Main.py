@@ -31,10 +31,7 @@ def main():
     
     ########Different search techniques#########
 
-    #A_Star_Search(initalPuzzle)
-
-
-
+    """
     testPuzzle = initalPuzzle.copy()
     start_time = time.time()
     BFSPuzzle = BreadthFirstSearch(testPuzzle)
@@ -45,9 +42,9 @@ def main():
     print("BFS Puzzle:")
     print(BFSPuzzle)
     print("--- %s seconds ---" % (end_time - start_time))
-    
+    """ 
 
-
+    """
     testPuzzle = initalPuzzle.copy()
     start_time = time.time()
     DFSPuzzle = DepthFirstSearch(testPuzzle)
@@ -64,7 +61,7 @@ def main():
     start_time = time.time()
     #SequentialSearch(testPuzzle)
     end_time = time.time()
-    
+    """
 
     """
     testPuzzle = initalPuzzle.copy()
@@ -82,16 +79,43 @@ def main():
 
     testPuzzle = initalPuzzle.copy()
     start_time = time.time()
-    #GreedySearch(testPuzzle)
+    GreedyPuzzle = GreedySearch(testPuzzle)
     end_time = time.time()
+    print("") #Spacer
+    print("") #Spacer
+    print("") #Spacer
+    print("Greedy Search Puzzle:")
+    print(GreedyPuzzle)
+    print("--- %s seconds ---" % (end_time - start_time))
 
 
 
+    #TODO
+    """
     testPuzzle = initalPuzzle.copy()
     start_time = time.time()
-    #TreeSearch(initalPuzzle)
+    TreePuzzle = TreeSearch(initalPuzzle)
     end_time = time.time()
+    print("") #Spacer
+    print("") #Spacer
+    print("") #Spacer
+    print("Tree Search Puzzle:")
+    print(TreePuzzle)
+    print("--- %s seconds ---" % (end_time - start_time))
+    """
 
-    
+    #TODO
+    """
+    testPuzzle = initalPuzzle.copy()
+    start_time = time.time()
+    AStarPuzzle = A_Star_Search(initalPuzzle)
+    end_time = time.time()
+    print("") #Spacer
+    print("") #Spacer
+    print("") #Spacer
+    print("A_Star Search Puzzle:")
+    print(AStarPuzzle)
+    print("--- %s seconds ---" % (end_time - start_time))
+    """
 
 main()
