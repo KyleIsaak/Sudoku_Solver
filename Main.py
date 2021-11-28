@@ -35,51 +35,62 @@ def main():
 
 
 
-    
+    testPuzzle = initalPuzzle.copy()
     start_time = time.time()
-    BFSPuzzle = BreadthFirstSearch(initalPuzzle)
+    BFSPuzzle = BreadthFirstSearch(testPuzzle)
+    end_time = time.time()
     print("") #Spacer
     print("") #Spacer
     print("") #Spacer
     print("BFS Puzzle:")
     print(BFSPuzzle)
-    print("--- %s seconds ---" % (time.time() - start_time))
+    print("--- %s seconds ---" % (end_time - start_time))
     
 
 
-    
+    testPuzzle = initalPuzzle.copy()
     start_time = time.time()
-    DFSPuzzle = DepthFirstSearch(initalPuzzle)
+    DFSPuzzle = DepthFirstSearch(testPuzzle)
+    end_time = time.time()
     print("") #Spacer
     print("") #Spacer
     print("") #Spacer
     print("DFS Puzzle:")
     print(DFSPuzzle)
-    print("--- %s seconds ---" % (time.time() - start_time))
+    print("--- %s seconds ---" % (end_time - start_time))
     
 
-
-    #SequentialSearch(initalPuzzle)
+    testPuzzle = initalPuzzle.copy()
+    start_time = time.time()
+    #SequentialSearch(testPuzzle)
+    end_time = time.time()
     
-
 
     """
+    testPuzzle = initalPuzzle.copy()
     start_time = time.time()
-    RandomPuzzle = RandomSearch(initalPuzzle)
+    RandomPuzzle = RandomSearch(testPuzzle)
+    end_time = time.time()
     print("") #Spacer
     print("") #Spacer
     print("") #Spacer
     print("Random Search Puzzle:")
     print(RandomPuzzle)
-    print("--- %s seconds ---" % (time.time() - start_time))
+    print("--- %s seconds ---" % (end_time - start_time))
     """
 
 
-
+    testPuzzle = initalPuzzle.copy()
     start_time = time.time()
-    #GreedySearch(initalPuzzle)
-    
+    #GreedySearch(testPuzzle)
+    end_time = time.time()
+
+
+
+    testPuzzle = initalPuzzle.copy()
+    start_time = time.time()
     #TreeSearch(initalPuzzle)
+    end_time = time.time()
 
     
 
