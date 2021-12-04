@@ -1,11 +1,11 @@
+from Heuristics import Heuristics
 from TextToMatrix import *
-from A_Star_Search import *
 from BreadthFirstSearch import *
 from DepthFirstSearch import *
 from SequentialSearch import *
 from RandomSearch import *
 from GreedySearch import *
-from TreeSearch import *
+
 
 import sys
 import time
@@ -76,7 +76,7 @@ def main():
     print("--- %s seconds ---" % (end_time - start_time))
     """
 
-
+    '''
     testPuzzle = initalPuzzle.copy()
     start_time = time.time()
     GreedyPuzzle = GreedySearch(testPuzzle)
@@ -87,35 +87,20 @@ def main():
     print("Greedy Search Puzzle:")
     print(GreedyPuzzle)
     print("--- %s seconds ---" % (end_time - start_time))
-
-
+    '''
 
     #TODO
-    """
     testPuzzle = initalPuzzle.copy()
     start_time = time.time()
-    TreePuzzle = TreeSearch(initalPuzzle)
+    HeuristicPuzzle = Heuristics(testPuzzle)
     end_time = time.time()
     print("") #Spacer
     print("") #Spacer
     print("") #Spacer
-    print("Tree Search Puzzle:")
-    print(TreePuzzle)
+    print("Heuristics Puzzle:")
+    print(HeuristicPuzzle)
     print("--- %s seconds ---" % (end_time - start_time))
-    """
+    
 
-    #TODO
-    """
-    testPuzzle = initalPuzzle.copy()
-    start_time = time.time()
-    AStarPuzzle = A_Star_Search(initalPuzzle)
-    end_time = time.time()
-    print("") #Spacer
-    print("") #Spacer
-    print("") #Spacer
-    print("A_Star Search Puzzle:")
-    print(AStarPuzzle)
-    print("--- %s seconds ---" % (end_time - start_time))
-    """
 
 main()
