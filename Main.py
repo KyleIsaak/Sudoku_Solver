@@ -56,7 +56,9 @@ def main():
     print(DFSPuzzle)
     print("--- %s seconds ---" % (end_time - start_time))
     
-
+    """
+    
+    """
     testPuzzle = initalPuzzle.copy()
     start_time = time.time()
     #SequentialSearch(testPuzzle)
