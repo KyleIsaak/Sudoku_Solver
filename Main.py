@@ -31,7 +31,7 @@ def main():
     
     ########Different search techniques#########
 
-    """
+    '''
     testPuzzle = initalPuzzle.copy()
     start_time = time.time()
     BFSPuzzle = BreadthFirstSearch(testPuzzle)
@@ -42,9 +42,9 @@ def main():
     print("BFS Puzzle:")
     print(BFSPuzzle)
     print("--- %s seconds ---" % (end_time - start_time))
-    """ 
-
-    """
+    '''
+    
+    '''
     testPuzzle = initalPuzzle.copy()
     start_time = time.time()
     DFSPuzzle = DepthFirstSearch(testPuzzle)
@@ -55,17 +55,8 @@ def main():
     print("DFS Puzzle:")
     print(DFSPuzzle)
     print("--- %s seconds ---" % (end_time - start_time))
-    
-    """
-    
-    """
-    testPuzzle = initalPuzzle.copy()
-    start_time = time.time()
-    #SequentialSearch(testPuzzle)
-    end_time = time.time()
-    """
-
-    """
+    '''
+    '''
     testPuzzle = initalPuzzle.copy()
     start_time = time.time()
     RandomPuzzle = RandomSearch(testPuzzle)
@@ -76,7 +67,7 @@ def main():
     print("Random Search Puzzle:")
     print(RandomPuzzle)
     print("--- %s seconds ---" % (end_time - start_time))
-    """
+    '''
 
     '''
     testPuzzle = initalPuzzle.copy()
@@ -92,6 +83,7 @@ def main():
     '''
 
     #TODO
+    '''
     testPuzzle = initalPuzzle.copy()
     start_time = time.time()
     HeuristicPuzzle = Heuristics(testPuzzle)
@@ -102,7 +94,7 @@ def main():
     print("Heuristics Puzzle:")
     print(HeuristicPuzzle)
     print("--- %s seconds ---" % (end_time - start_time))
-    
+    '''
 
 
 main()
