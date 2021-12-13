@@ -85,7 +85,7 @@ def main():
         print("--- %s seconds ---" % (end_time - start_time))
     '''    
     '''
-    for puzzle in len(contents):
+    for puzzle in range(len(contents)):
         initialPuzzle = ConvertTextToMatrix(contents[puzzle],SIZE)
         answerPuzzle = ConvertTextToMatrix(answers[puzzle],SIZE)
 
@@ -101,7 +101,7 @@ def main():
         print("--- %s seconds ---" % (end_time - start_time))
     '''
     '''
-    for puzzle in len(contents):
+    for puzzle in range(len(contents)):
         initialPuzzle = ConvertTextToMatrix(contents[puzzle],SIZE)
         answerPuzzle = ConvertTextToMatrix(answers[puzzle],SIZE)
 
@@ -118,7 +118,7 @@ def main():
     '''
 
     '''
-    for puzzle in len(contents):
+    for puzzle in range(len(contents)):
         initialPuzzle = ConvertTextToMatrix(contents[puzzle],SIZE)
         answerPuzzle = ConvertTextToMatrix(answers[puzzle],SIZE)
         testPuzzle = initialPuzzle.copy()
@@ -135,7 +135,7 @@ def main():
 
     #TODO
     '''
-    for puzzle in len(contents):
+    for puzzle in range(len(contents)):
         initialPuzzle = ConvertTextToMatrix(contents[puzzle],SIZE)
         answerPuzzle = ConvertTextToMatrix(answers[puzzle],SIZE)
         testPuzzle = initialPuzzle.copy()
