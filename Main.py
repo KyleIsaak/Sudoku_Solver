@@ -55,7 +55,7 @@ def main():
     #Sequence of 81 numbers
     contents = openCSV(file)
     answers = answerCSV(file)
-    
+   
     #initialPuzzle = ConvertTextToMatrix(contents[0],SIZE)
     #answerPuzzle = ConvertTextToMatrix(answers[0],SIZE)
     
@@ -66,6 +66,9 @@ def main():
     #print(initialPuzzle)
     ########Different search techniques#########
     
+    #-------------------------------------------------------------------------------
+
+    # BFS
     '''
     for puzzle in range(len(contents)):
         initialPuzzle = ConvertTextToMatrix(contents[puzzle],SIZE)
@@ -83,9 +86,12 @@ def main():
         print("BFS Puzzle:")
         print(BFSPuzzle)
         print("--- %s seconds ---" % (end_time - start_time))
-    '''    
+    '''  
+
+
+    ## DFS  
     '''
-    for puzzle in len(contents):
+    for puzzle in range(len(contents)):
         initialPuzzle = ConvertTextToMatrix(contents[puzzle],SIZE)
         answerPuzzle = ConvertTextToMatrix(answers[puzzle],SIZE)
 
@@ -100,8 +106,11 @@ def main():
         print(DFSPuzzle)
         print("--- %s seconds ---" % (end_time - start_time))
     '''
+
+
+    ## Random
     '''
-    for puzzle in len(contents):
+    for puzzle in range(len(contents)):
         initialPuzzle = ConvertTextToMatrix(contents[puzzle],SIZE)
         answerPuzzle = ConvertTextToMatrix(answers[puzzle],SIZE)
 
@@ -118,24 +127,117 @@ def main():
     '''
 
     '''
-    for puzzle in len(contents):
+    ## Greedy Rows
+    start_time = time.time()
+    for puzzle in range(len(contents)):
         initialPuzzle = ConvertTextToMatrix(contents[puzzle],SIZE)
         answerPuzzle = ConvertTextToMatrix(answers[puzzle],SIZE)
         testPuzzle = initialPuzzle.copy()
-        start_time = time.time()
-        GreedyPuzzle = GreedySearch(testPuzzle)
-        end_time = time.time()
-        print("") #Spacer
-        print("") #Spacer
-        print("") #Spacer
-        print("Greedy Search Puzzle:")
-        print(GreedyPuzzle)
-        print("--- %s seconds ---" % (end_time - start_time))
+        
+        #start_time = time.time()
+        GreedyPuzzle = GreedySearch(testPuzzle, 'rows')
+        #end_time = time.time()
+
+        #print("") #Spacer
+        #print("") #Spacer
+        #print("") #Spacer
+        #print("Greedy Search Puzzle:")
+        #print(GreedyPuzzle)
+
+    end_time = time.time()
+    print("--- %s seconds ---" % (end_time - start_time))
     '''
+
+    
+    ## Greedy Columns
+    
+    start_time = time.time()
+    for puzzle in range(len(contents)):
+        initialPuzzle = ConvertTextToMatrix(contents[puzzle],SIZE)
+        answerPuzzle = ConvertTextToMatrix(answers[puzzle],SIZE)
+        testPuzzle = initialPuzzle.copy()
+        
+        #start_time = time.time()
+        GreedyPuzzle = GreedySearch(testPuzzle, 'columns')
+        #end_time = time.time()
+
+        #print("") #Spacer
+        #print("") #Spacer
+        #print("") #Spacer
+        #print("Greedy Search Puzzle:")
+        #print(GreedyPuzzle)
+
+    end_time = time.time()
+    print("--- %s seconds ---" % (end_time - start_time))
+    
+
+
+    
+    ## SINGLE GREEDY TESTS
+    '''
+    initialPuzzle = ConvertSingleFileToMatrix(file)
+
+
+    # Rows
+    initialPuzzle = ConvertSingleFileToMatrix(file)
+    print("Initial Puzzle:")
+    print(initialPuzzle)
+    print("") #Spacer
+    print("") #Spacer
+    print("") #Spacer
+
+    testPuzzle = initialPuzzle.copy()
+        
+    start_time = time.time()
+    GreedyPuzzle = GreedySearch(testPuzzle, 'rows')
+    end_time = time.time()
+
+    print("") #Spacer
+    print("") #Spacer
+    print("") #Spacer
+    print("Greedy Rows Puzzle:")
+    print(GreedyPuzzle)
+
+    print("--- %s seconds ---" % (end_time - start_time))
+
+
+    # Columns
+    testPuzzle = initialPuzzle.copy()
+        
+    start_time = time.time()
+    GreedyPuzzle = GreedySearch(testPuzzle, 'columns')
+    end_time = time.time()
+
+    print("") #Spacer
+    print("") #Spacer
+    print("") #Spacer
+    print("Greedy Columns Puzzle:")
+    print(GreedyPuzzle)
+
+    print("--- %s seconds ---" % (end_time - start_time))
+    '''
+
+    '''
+    # Cells
+    testPuzzle = initialPuzzle.copy()
+        
+    start_time = time.time()
+    GreedyPuzzle = GreedySearch(testPuzzle, 'cells')
+    end_time = time.time()
+
+    print("") #Spacer
+    print("") #Spacer
+    print("") #Spacer
+    print("Greedy Cells Puzzle:")
+    print(GreedyPuzzle)
+
+    print("--- %s seconds ---" % (end_time - start_time))
+    '''
+
 
     #TODO
     '''
-    for puzzle in len(contents):
+    for puzzle in range(len(contents)):
         initialPuzzle = ConvertTextToMatrix(contents[puzzle],SIZE)
         answerPuzzle = ConvertTextToMatrix(answers[puzzle],SIZE)
         testPuzzle = initialPuzzle.copy()
@@ -149,6 +251,7 @@ def main():
         print(HeuristicPuzzle)
         print("--- %s seconds ---" % (end_time - start_time))
     '''
+    
 
 
 main()

@@ -17,16 +17,19 @@ def ConvertTextToMatrix(text, size):
     return Matrix
 
 #Test cases examples
-'''
-with open('SudokuPuzzle1.txt') as f:
-    contents = f.read()
+def ConvertSingleFileToMatrix(file):
+    with open(file) as f:
+        contents = f.read()
 
-with open('SudokuPuzzleSolution1.txt') as f:
-    contentsSolution = f.read()
+    '''
+    with open('SudokuPuzzleSolution1.txt') as f:
+        contentsSolution = f.read()
+    '''
+    
+    puzzle = ConvertTextToMatrix(contents,9)
+    #puzzleSolution = ConvertTextToMatrix(contentsSolution,9)
 
-puzzle = ConvertTextToMatrix(contents,9)
-puzzleSolution = ConvertTextToMatrix(contentsSolution,9)
+    #print(puzzle)
+    #print(puzzleSolution)
 
-print(puzzle)
-print(puzzleSolution)
-'''
+    return puzzle
